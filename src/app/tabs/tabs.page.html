@@ -1,0 +1,26 @@
+<ion-tabs color="medium">
+
+    <ion-tab-bar slot="bottom" color="dark">
+
+        <ion-tab-button tab="tab2" *ngIf="this.personaService.admin === true">
+            <ion-icon name="person-add-outline"></ion-icon>
+            <ion-label>ADD</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab1" *ngIf="this.personaService.admin === true">
+            <ion-icon name="alert-circle-outline"></ion-icon>
+            <ion-label>ALERT</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab1" *ngIf="this.personaService.admin === false">
+            <ion-icon name="people-circle-outline"></ion-icon>
+            <ion-label>INICIO</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab3" *ngIf="this.personaService.admin === true">
+            <ion-icon name="person-circle-outline"></ion-icon>
+            <ion-label>SEARCH</ion-label>
+        </ion-tab-button>
+    </ion-tab-bar>
+
+</ion-tabs>

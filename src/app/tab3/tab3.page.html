@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark" class="headers">
+        <ion-title>
+          SEARCH
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-button (click)="logout()"class="salir" color="medium"><ion-icon name="log-out-outline"></ion-icon></ion-button>
+    <br>
+    <br>
+    <ion-card class="headers" (click)="conon()" (click)="obtenerConductores()">
+        <ion-card-header color="medium">
+            <h2 class="encabezado" >Ver Conductores</h2>
+        </ion-card-header>
+    </ion-card>
+    <div *ngIf="condu === true">
+        <ion-card *ngFor="let cond of conductores">
+            <ion-card-header>
+                <ion-card-title>{{cond.nombre}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <h2><b>Nombre de conductor:</b> {{cond.nombre}} {{cond.apellidos}}</h2>
+                <h2><b>Correo electronico</b> {{cond.email}}</h2>
+                <h2><b>Direccion de conductor:</b> {{cond.direccion}}</h2>
+                <h2><b>Creacion de cuenta:</b> {{cond.created_at}}</h2>
+                <h2><b>Placa del vehiculo:</b> {{cond.placa}}</h2>
+                <h2><b>Modelo del vehiculo:</b> {{cond.modelo}}</h2>
+                <h2><b>Marca del vehiculo:</b> {{cond.marca}}</h2>
+                <ion-button (click)="borrarConductor(cond._id)" class="btn1" color="danger"><ion-icon name="close"></ion-icon></ion-button>
+            </ion-card-content>
+        </ion-card>
+        <ion-button (click)="conoff()"class="btn" color="dark"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>
+    </div>
+    <ion-card class="headers" (click)="pason()" (click)="obtenerPasajeros()">
+        <ion-card-header>
+            <h2 class="encabezado" >Ver Usuarios</h2>
+        </ion-card-header>
+    </ion-card>
+    <div *ngIf="pasaj === true">
+    <ion-card *ngFor="let pasa of usuarios">
+        <ion-card-header>
+            <ion-card-title>{{pasa.nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h2><b>Nombre de usuario:</b> {{pasa.nombre}} {{pasa.apellidos}}</h2>
+            <h2><b>Correo electronico</b> {{pasa.email}}</h2>
+            <h2><b>Direccion de usuario:</b> {{pasa.direccion}}</h2>
+            <h2><b>Creacion de cuenta:</b> {{pasa.created_at}}</h2>
+            <ion-button (click)="borrarUsuario(pasa._id)" class="btn1" color="danger"><ion-icon name="close"></ion-icon></ion-button>
+        </ion-card-content>
+    </ion-card>
+    <ion-button (click)="pasoff()"class="btn" color="dark"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>
+</div>
+<ion-card class="headers" (click)="actviaj()" (click)="obtenerViajes()">
+    <ion-card-header color="secondary">
+        <h2 class="encabezado" >Ver Viajes</h2>
+    </ion-card-header>
+</ion-card>
+<div *ngIf="viaje === true">
+<ion-card *ngFor="let via of viajes">
+    <ion-card-content>
+        <h2><b>Destino:</b> {{via.destino}}</h2>
+          <h2><b>Punto de partida: </b> {{via.inicio}} pz</h2>
+          <h2><b>Hora de viaje:</b> {{via.created_at}}</h2>
+    </ion-card-content>
+</ion-card>
+<ion-button (click)="desviaj()"class="btn" color="dark"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>
+</div>
+
+    
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark" class="headers">
+      <ion-title>
+        SEARCH
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]="true">
+  <ion-button (click)="logout()"class="salir" color="danger"><ion-icon name="log-out-outline"></ion-icon></ion-button>
+  <ion-button (click)="report()"class="report" color="warning"><ion-icon name="alert-outline"></ion-icon></ion-button>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  <agm-map 
+    *ngIf="currentCenter" [latitude]="currentCenter.lat"[longitude]="currentCenter.long"
+    [zoom]="defaultZoom">
+    <agm-marker [latitude]=currentCenter.lat [longitude]=currentCenter.long iconUrl="assets/car.png"></agm-marker>
+      <agm-polyline [strokeColor]="'red'" *ngIf="coordinates">
+        <agm-polyline-point *ngFor="let coords of coordinates" 
+          [latitude]="coords.lat"[longitude]="coords.long">
+        </agm-polyline-point>
+      </agm-polyline>
+  </agm-map>
+
+  <div *ngIf="rep === true">
+    <ion-card class="headers" *ngFor="let alerta of reportes" color="light">
+      <ion-card-content>
+        <h2><b>Cordenadas de alerta: </b> {{alerta.local}}</h2>
+        <h2><b>Descripcion: </b> {{alerta.descripcion}} pz</h2>
+        <h2><b>Lo reporta: </b> {{alerta.email}}</h2>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button (click)="report2()"class="btn" color="warning"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>  
+  </div> 
+</ion-content>
+  

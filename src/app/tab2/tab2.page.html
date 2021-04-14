@@ -1,0 +1,134 @@
+<ion-header [translucent]="true"  >
+    <ion-toolbar class="hed" color="tertiary" class="headers">
+      <ion-title >
+        ADD'S
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content [fullscreen]="true" >
+    <ion-header collapse="condense">
+      <ion-toolbar class="hed">
+        <ion-title size="large">Lista de contactos</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-button (click)="logout()"class="salir" color="danger"><ion-icon name="log-out-outline"></ion-icon></ion-button>
+    <br>
+    <br>
+    <br>
+
+  <ion-card class="headers" (click)="actcond()">
+    <ion-card-header color="tertiary">
+      <h2 class="encabezado" >Registrar Conductor</h2>
+    </ion-card-header>
+  </ion-card>
+
+
+    <div *ngIf="condu === true">
+
+      <ion-item>
+        <ion-label position="floating" >Usuario</ion-label>
+        <ion-input [(ngModel)]="cond.nombre" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input [(ngModel)]="cond.apellidos"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="cond.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="cond.password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Direccion</ion-label>
+        <ion-input [(ngModel)]="cond.direccion"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Curp</ion-label>
+        <ion-input [(ngModel)]="cond.curp"></ion-input>
+      </ion-item>
+
+      <ion-card class="headers">
+        <ion-card-header color="tertiary">
+          <h2 class="encabezado" >Registrar vehiculo</h2>
+        </ion-card-header>
+      </ion-card>
+
+        <ion-item>
+          <ion-label position="floating">Placa Del vehiculo asociado</ion-label>
+          <ion-input [(ngModel)]="cond.placa"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Modelo del vehiculo</ion-label>
+          <ion-input [(ngModel)]="cond.modelo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Marca del vehiculo</ion-label>
+          <ion-input [(ngModel)]="cond.marca"></ion-input>
+        </ion-item>
+              <br>
+      <ion-button (click)="registrarConductor()" (click)="agregarAlert()" class="btn" color="secondary"><ion-icon name="add-circle"></ion-icon></ion-button>
+              <br>
+      <ion-button (click)="descond()"class="btn" color="warning"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>
+              <br>
+    </div>
+
+
+
+
+    <ion-card class="headers" (click)="actper()">
+      <ion-card-header color="tertiary">
+          <h2 class="encabezado" >Registrar Pasajero</h2>
+      </ion-card-header>
+    </ion-card>
+
+
+    <div *ngIf="perso === true">  
+
+      <ion-item >
+        <ion-label position="floating" >Usuario</ion-label>
+        <ion-input [(ngModel)]="person.nombre" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellidos</ion-label>
+        <ion-input [(ngModel)]="person.apellidos"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="person.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="person.password"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Direccion</ion-label>
+        <ion-input [(ngModel)]="person.direccion"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Curp</ion-label>
+        <ion-input [(ngModel)]="person.curp"></ion-input>
+      </ion-item>
+
+            <br>
+      <ion-button (click)="registrarUsuario()" (click)="agregarAlert()" class="btn" color="secondary"><ion-icon name="add-circle"></ion-icon></ion-button>
+            <br>
+      <ion-button (click)="desper()"class="btn" color="warning"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>
+            <br>
+  </div>
+
+</ion-content>
